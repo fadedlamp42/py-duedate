@@ -1,3 +1,3 @@
 run:
 	clear
-	@python3 menu.py
+	@python3 duedate.py
