@@ -36,5 +36,5 @@ for f in raw:
             due = due.replace(year=date.today().year)
             until = days_until(due)
 
-            if until<=required and until>0:
+            if until<=required and until>=0:
                 print(f"{until} day{'' if until==1 else 's'} until {task}({required} needed)")
