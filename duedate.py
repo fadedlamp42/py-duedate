@@ -10,6 +10,7 @@ else:
 def days_until(due):
     return (due - datetime.today()).days + 1
 
+anything = False
 for f in raw:
     if os.path.isfile(f): #guard for file existence
         if os.stat(f).st_size != 0: #check if file is non-empty
@@ -38,7 +39,13 @@ for f in raw:
 
             if until<=required and until>0:
                 print(f"{until} day{'' if until==1 else 's'} until {task}({required} needed)")
+                anything = True
             elif until == 0:
                 print(f"{task} due today!")
+                anything = True
             elif until < 0:
                 print(f"{task} is {-until} day{'' if -until==1 else 's'} late!!")
+                anything = True
+
+if not anything:
+    print("No due dates in range")
